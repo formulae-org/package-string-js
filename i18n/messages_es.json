@@ -1,0 +1,123 @@
+{
+	"pathString" : "Cadena",
+
+	"nameString"           : "Cadena",
+	"openingQuotationMark" : "“",
+	"closingQuotationMark" : "”",
+	"enterString"          : "Introduzca cadena",
+	"updateString"         : "Actualice cadena",
+	"leafString"           : "Cadena",
+
+	"namePassword"  : "Contraseña",
+	"enterPassword" : "Introuzca contraeña",
+	"leafPassword"  : "Contraseña",
+
+	"nameLength"     : "Longitud de cadena",
+	"mnemonicLength" : "Longitud",
+	"leafLength"     : "Longitud",
+
+	"nameConcatenation"     : "Concatenación",
+	"operatorConcatenation" : "🔗",
+	"leafConcatenation"     : "🔗",
+
+	"nameSubstringToPos"     : "Subcadena de posición a posición",
+	"mnemonicSubstringToPos" : "SubcadenaPosPos",
+	"leafSubstringToPos"     : "Subcadena de posición a posición",
+	"childrenSubstringToPos" : [ "Cadena a extraer subcadena", "Posición inicial", "Posición final" ],
+
+	"nameSubstringToN"     : "Subcadena de posición a número de caracteres",
+	"mnemonicSubstringToN" : "SubcadenaPosN",
+	"leafSubstringToN"     : "Subcadena de posición a número de caracteres",
+	"childrenSubstringToN" : [ "Cadena a extraer subcadena", "Posición inicial", "Número of caracteres" ],
+
+	"nameSubstring"     : "Subcadena de posición al final",
+	"mnemonicSubstring" : "SubcadenaPosFin",
+	"leafSubstring"     : "Subcadena de posición al final",
+	"childrenSubstring" : [ "Cadena a extraer subcadena", "Posición inicial" ],
+
+	"childrenSearch" : [ "Cadena en one buscar", "Subcadena a buscar" ],
+
+	"nameIndex"     : "Posición de primera ocurrencia",
+	"mnemonicIndex" : "Posición",
+	"leafIndex"     : "Posición de primera ocurrencia",
+
+	"nameIndexes"     : "Posiciones de ocurrencias",
+	"mnemonicIndexes" : "Posiciones",
+	"leafIndexes"     : "Posiciones de ocurrencias",
+
+	"nameContains"     : "¿Contiene subcadena?",
+	"operatorContains" : "¿Contiene?",
+	"leafContains"     : "¿Contiene subcadena?",
+
+	"nameStartsWith"     : "¿Comienza con?",
+	"operatorStartsWith" : "¿ComienzaCon?",
+	"leafStartsWith"     : "¿Comienza con?",
+
+	"nameEndsWith"     : "¿Termina con?",
+	"operatorEndsWith" : "¿TerminaCon?",
+	"leafEndsWith"     : "¿Termina con?",
+
+	"nameUppercase"     : "Mayúsculas",
+	"mnemonicUppercase" : "Mayúsculas",
+	"leafUppercase"     : "Mayúsculas",
+
+	"nameLowercase"     : "Minúsculas",
+	"mnemonicLowercase" : "Minúsculas",
+	"leafLowercase"     : "Minúsculas",
+
+	"nameReplace"     : "Reemplaza primera ocurrencia",
+	"mnemonicReplace" : "ReemplazaPrimera",
+	"leafReplace"     : "Reemplaza primera ocurrencia",
+	"childrenReplace" : [ "Cadena en donde reemplazar", "Subcadena a reemplazar", "Nueva subcadena" ],
+
+	"nameReplaceAll"     : "Reemplaza todas las ocurrencias",
+	"mnemonicReplaceAll" : "ReemplazaTodas",
+	"leafReplaceAll"     : "Reemplaza todas las ocurrencias",
+
+	"nameTrim"     : "Recortar",
+	"mnemonicTrim" : "Recortar",
+	"leafTrim"     : "Recortar",
+
+	"nameMatches"     : "¿Concuerda?",
+	"operatorMatches" : "¿Concuerda?",
+	"leafMatches"     : "¿Concuerda?",
+	"childrenMatches" : [ "Cadena en one buscar concordancias", "Cadena a ser utilizaa como patrón" ],
+
+	"nameSplit"     : "División",
+	"mnemonicSplit" : "División",
+	"leafSplit"     : "División",
+	"childrenSplit" : [ "Cadena a ser dividida", "Especificación. Un número (cada n), una lista de números, una subcadena (separador)" ],
+
+	"nameFormat"     : "Formatear",
+	"mnemonicFormat" : "Formatear",
+	"leafFormat"     : "Formatear",
+
+	"nameReverse"     : "Inversión",
+	"mnemonicReverse" : "Invertir",
+	"leafReverse"     : "Inversión",
+
+	"nameEncode"     : "Codificación de cadena a partir de lista de códigos Unicode",
+	"mnemonicEncode" : "Codificar",
+	"leafEncode"     : "Codificación a cadena",
+
+	"nameDecode"     : "Creación de lista de códigos Unicode a partir de una cadena",
+	"mnemonicDecode" : "Decodificar",
+	"leafDecode"     : "Decodificación de cadena",
+
+	"nameToString"     : "Conversión a cadena",
+	"mnemonicToString" : "Cadena",
+	"leafToString"     : "Conversión a cadena",
+	"childrenToString" : [ "Expresión a ser convertida a cadena", "Modificador" ],
+
+	"nameToText"     : "Conversión a texto",
+	"mnemonicToText" : "Texto",
+	"leafToText"     : "Conversión a texto",
+	
+	"nameToRegularExpression"     : "Conversión a expresión regular",
+	"mnemonicToRegularExpression" : "ExpresiónRegular",
+	"leafToRegularExpression"     : "Conversión a expresión regular",
+	
+	"nameToPassword"     : "Conversión a contraseña",
+	"mnemonicToPassword" : "Contraseña",
+	"leafToPassword"     : "Conversión a contraseña"
+}

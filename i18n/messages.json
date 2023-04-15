@@ -1,0 +1,123 @@
+{
+	"pathString" : "String",
+
+	"nameString"           : "String",
+	"openingQuotationMark" : "“",
+	"closingQuotationMark" : "”",
+	"enterString"          : "Enter string",
+	"updateString"         : "Update string",
+	"leafString"           : "String",
+
+	"namePassword"  : "Password",
+	"enterPassword" : "Enter password",
+	"leafPassword"  : "Password",
+
+	"nameLength"     : "Length of a string",
+	"mnemonicLength" : "Length",
+	"leafLength"     : "Length",
+
+	"nameConcatenation"     : "String concatenation",
+	"operatorConcatenation" : "🔗",
+	"leafConcatenation"     : "🔗",
+
+	"nameSubstringToPos"     : "Substring from position to position",
+	"mnemonicSubstringToPos" : "SubstringPosToPos",
+	"leafSubstringToPos"     : "Substring from position to position",
+	"childrenSubstringToPos" : [ "String to extract substring", "Initial position", "Final position" ],
+
+	"nameSubstringToN"     : "Substring from position, a number characters",
+	"mnemonicSubstringToN" : "SubstringPosN",
+	"leafSubstringToN"     : "Substring from position, a number characters",
+	"childrenSubstringToN" : [ "String to extract substring", "Initial position", "Number of characters" ],
+
+	"nameSubstring"     : "Substring from position, to the end",
+	"mnemonicSubstring" : "SubstringPosToEnd",
+	"leafSubstring"     : "Substring from position, to the end",
+	"childrenSubstring" : [ "String to extract substring", "Initial position" ],
+
+	"childrenSearch" : [ "String to search in", "Substring to be searched" ],
+
+	"nameIndex"     : "Index of first ocurrence of string",
+	"mnemonicIndex" : "Index",
+	"leafIndex"     : "Index of first ocurrence of string",
+
+	"nameIndexes"     : "Indexes of all the ocurrences of string",
+	"mnemonicIndexes" : "Indexes",
+	"leafIndexes"     : "Indexes of all ocurrences of string",
+
+	"nameContains"     : "Contains a substring",
+	"operatorContains" : "Contains",
+	"leafContains"     : "Contains",
+
+	"nameStartsWith"     : "Starts with a subtring",
+	"operatorStartsWith" : "StartsWith",
+	"leafStartsWith"     : "Starts with a subtring",
+
+	"nameEndsWith"     : "Ends with a subtring",
+	"operatorEndsWith" : "EndsWith",
+	"leafEndsWith"     : "Ends with a subtring",
+
+	"nameUppercase"     : "Uppercase",
+	"mnemonicUppercase" : "Uppercase",
+	"leafUppercase"     : "Uppercase",
+
+	"nameLowercase"     : "Lowercase",
+	"mnemonicLowercase" : "Lowercase",
+	"leafLowercase"     : "Lowercase",
+
+	"nameReplace"     : "Replace first ocurrence",
+	"mnemonicReplace" : "Replace",
+	"leafReplace"     : "Replace first ocurrence",
+	"childrenReplace" : [ "String to search on", "Substring to be searched", "New substring" ],
+
+	"nameReplaceAll"     : "Replace all ocurrences",
+	"mnemonicReplaceAll" : "ReplaceAll",
+	"leafReplaceAll"     : "Replace all ocurrences",
+
+	"nameTrim"     : "Trim",
+	"mnemonicTrim" : "Trim",
+	"leafTrim"     : "Trim",
+
+	"nameMatches"     : "Pattern matching",
+	"operatorMatches" : "Matches",
+	"leafMatches"     : "Matches",
+	"childrenMatches" : [ "String to be tested for a match", "String to be used as the pattern" ],
+
+	"nameSplit"     : "Split",
+	"mnemonicSplit" : "Split",
+	"leafSplit"     : "Split",
+	"childrenSplit" : [ "String to be splitted", "Specification. A number (every n), a list of numbers, or a string (separator)" ],
+
+	"nameFormat"     : "Format",
+	"mnemonicFormat" : "Format",
+	"leafFormat"     : "Format",
+
+	"nameReverse"     : "Reverse",
+	"mnemonicReverse" : "Reverse",
+	"leafReverse"     : "Reverse",
+
+	"nameEncode"     : "Creation of a string from the Unicode codes of its characters",
+	"mnemonicEncode" : "Encode",
+	"leafEncode"     : "Encode",
+
+	"nameDecode"     : "Creation of a list of Unicode codes from a string",
+	"mnemonicDecode" : "Decode",
+	"leafDecode"     : "Decode",
+
+	"nameToString"     : "To string",
+	"mnemonicToString" : "ToString",
+	"leafToString"     : "To string",
+	"childrenToString" : [ "Expression to be converted to strign", "Modifier" ],
+
+	"nameToText"     : "To text",
+	"mnemonicToText" : "ToText",
+	"leafToText"     : "To text",
+	
+	"nameToRegularExpression"     : "To regular expression",
+	"mnemonicToRegularExpression" : "ToRegularExpression",
+	"leafToRegularExpression"     : "To regular expression",
+	
+	"nameToPassword"     : "To password",
+	"mnemonicToPassword" : "ToPassword",
+	"leafToPassword"     : "To password"
+}
