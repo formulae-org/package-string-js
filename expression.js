@@ -163,7 +163,7 @@ StringPackage.RegularExpression = class extends StringPackage.String {
 	
 	setSerializationStrings(strings, promises) {
 		try {
-			new RegExp(strings[0]);
+			let x = new RegExp(strings[0]);
 			this.set("Value", strings[0]);
 		}
 		catch (e) {

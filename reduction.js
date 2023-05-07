@@ -447,7 +447,7 @@ StringPackage.to = async (to, session) => {
 		
 		case "String.ToRegularExpression":
 			try {
-				new RegExp(value);
+				let x = new RegExp(value);
 			}
 			catch (e) {
 				ReductionManager.setInError(argument, "Invalid value for a regular expression");

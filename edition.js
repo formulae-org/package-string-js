@@ -117,7 +117,7 @@ StringPackage.editionRegularExpression = function() {
 		if (s == null) return;
 	
 		try {
-			new RegExp(s);
+			let x = new RegExp(s);
 			break;
 		}
 		catch (e) {
@@ -147,7 +147,7 @@ StringPackage.actionRegularExpression = {
 			if (s == null) return;
 			
 			try {
-				new RegExp(s);
+				let x = new RegExp(s);
 				break;
 			}
 			catch (e) {
