@@ -663,37 +663,37 @@ StringPackage.decode = async (decode, session) => {
 };
 
 StringPackage.setReducers = () => {
-	ReductionManager.addReducer("String.Concatenation", StringPackage.concatenation);
+	ReductionManager.addReducer("String.Concatenation", StringPackage.concatenation, "StringPackage.concatenation");
 	
-	ReductionManager.addReducer("String.Length",    StringPackage.functionReducer);
-	ReductionManager.addReducer("String.Uppercase", StringPackage.functionReducer);
-	ReductionManager.addReducer("String.Lowercase", StringPackage.functionReducer);
-	ReductionManager.addReducer("String.Trim",      StringPackage.functionReducer);
-	ReductionManager.addReducer("String.Reverse",   StringPackage.functionReducer);
+	ReductionManager.addReducer("String.Length",    StringPackage.functionReducer, "StringPackage.functionReducer");
+	ReductionManager.addReducer("String.Uppercase", StringPackage.functionReducer, "StringPackage.functionReducer");
+	ReductionManager.addReducer("String.Lowercase", StringPackage.functionReducer, "StringPackage.functionReducer");
+	ReductionManager.addReducer("String.Trim",      StringPackage.functionReducer, "StringPackage.functionReducer");
+	ReductionManager.addReducer("String.Reverse",   StringPackage.functionReducer, "StringPackage.functionReducer");
 	
-	ReductionManager.addReducer("String.StartsWith", StringPackage.functionStringString);
-	ReductionManager.addReducer("String.EndsWith",   StringPackage.functionStringString);
-	ReductionManager.addReducer("String.Index",      StringPackage.functionStringString);
-	ReductionManager.addReducer("String.Indexes",    StringPackage.functionStringString);
+	ReductionManager.addReducer("String.StartsWith", StringPackage.functionStringString, "StringPackage.functionStringString");
+	ReductionManager.addReducer("String.EndsWith",   StringPackage.functionStringString, "StringPackage.functionStringString");
+	ReductionManager.addReducer("String.Index",      StringPackage.functionStringString, "StringPackage.functionStringString");
+	ReductionManager.addReducer("String.Indexes",    StringPackage.functionStringString, "StringPackage.functionStringString");
 	
-	ReductionManager.addReducer("String.Contains",   StringPackage.contains);
-	ReductionManager.addReducer("String.Matches",    StringPackage.matches);
-	ReductionManager.addReducer("String.Replace",    StringPackage.replacement);
-	ReductionManager.addReducer("String.ReplaceAll", StringPackage.replacement);
-	ReductionManager.addReducer("String.Split",      StringPackage.split);
+	ReductionManager.addReducer("String.Contains",   StringPackage.contains,    "StringPackage.contains");
+	ReductionManager.addReducer("String.Matches",    StringPackage.matches,     "StringPackage.matches");
+	ReductionManager.addReducer("String.Replace",    StringPackage.replacement, "StringPackage.replacement");
+	ReductionManager.addReducer("String.ReplaceAll", StringPackage.replacement, "StringPackage.replacement");
+	ReductionManager.addReducer("String.Split",      StringPackage.split,       "StringPackage.split");
 	
-	ReductionManager.addReducer("String.SubstringToPos", StringPackage.subString);
-	ReductionManager.addReducer("String.SubstringToN",   StringPackage.subString);
-	ReductionManager.addReducer("String.Substring",      StringPackage.subString);
+	ReductionManager.addReducer("String.SubstringToPos", StringPackage.subString, "StringPackage.subString");
+	ReductionManager.addReducer("String.SubstringToN",   StringPackage.subString, "StringPackage.subString");
+	ReductionManager.addReducer("String.Substring",      StringPackage.subString, "StringPackage.subString");
 	
-	ReductionManager.addReducer("Relation.Compare", StringPackage.compareReducer);
+	ReductionManager.addReducer("Relation.Compare", StringPackage.compareReducer, "StringPackage.compareReducer");
 	
-	ReductionManager.addReducer("String.ToString",            StringPackage.arrayToString);
-	ReductionManager.addReducer("String.ToString",            StringPackage.to);
-	ReductionManager.addReducer("String.ToText",              StringPackage.to);
-	ReductionManager.addReducer("String.ToRegularExpression", StringPackage.to);
-	ReductionManager.addReducer("String.ToPassword",          StringPackage.to);
+	ReductionManager.addReducer("String.ToString",            StringPackage.arrayToString, "StringPackage.arrayToString");
+	ReductionManager.addReducer("String.ToString",            StringPackage.to,            "StringPackage.to");
+	ReductionManager.addReducer("String.ToText",              StringPackage.to,            "StringPackage.to");
+	ReductionManager.addReducer("String.ToRegularExpression", StringPackage.to,            "StringPackage.to");
+	ReductionManager.addReducer("String.ToPassword",          StringPackage.to,            "StringPackage.to");
 	
-	ReductionManager.addReducer("String.Encode", StringPackage.encode);
-	ReductionManager.addReducer("String.Decode", StringPackage.decode);
+	ReductionManager.addReducer("String.Encode", StringPackage.encode, "StringPackage.encode");
+	ReductionManager.addReducer("String.Decode", StringPackage.decode, "StringPackage.decode");
 };
