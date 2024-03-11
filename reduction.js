@@ -55,7 +55,7 @@ StringPackage.functionReducer = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Length":
-			result = CanonicalArithmetic.number2Expr(value.length);
+			result = CanonicalArithmetic.number2InternalNumber(value.length)
 			break;
 		
 		case "String.Uppercase":
@@ -72,7 +72,7 @@ StringPackage.functionReducer = async (functionExpression, session) => {
 			argument.set("Value", value.trim());
 			result = argument;
 			break;
-			
+		
 		case "String.Reverse":
 			argument.set("Value", value.split("").reverse().join(""));
 			result = argument;
@@ -104,7 +104,7 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Index":
-			result = CanonicalArithmetic.number2Expr(value1.indexOf(value2) + 1);
+			result = CanonicalArithmetic.number2InternalNumber(value1.indexOf(value2) + 1);
 			break;
 		
 		case "String.Indexes":
@@ -112,7 +112,9 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 				result = Formulae.createExpression("List.List");
 				let pos = value1.indexOf(value2);
 				while (pos != -1) {
-					result.addChild(CanonicalArithmetic.number2Expr(pos + 1));
+					result.addChild(
+						CanonicalArithmetic.number2InternalNumber(pos + 1)
+					);
 					pos = value1.indexOf(value2, pos + 1);
 					
 				}
@@ -656,7 +658,9 @@ StringPackage.decode = async (decode, session) => {
 	let result = Formulae.createExpression("List.List");
 	let str = arg.get("Value");
 	let array = [...str];
-	array.forEach(ch => result.addChild(CanonicalArithmetic.number2Expr(ch.codePointAt(0))));
+	array.forEach(ch => result.addChild(
+		CanonicalArithmetic.number2InternalNumber(ch.codePointAt(0))
+	));
 	
 	decode.replaceBy(result);
 	return true;
