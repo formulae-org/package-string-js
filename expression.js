@@ -43,18 +43,18 @@ StringPackage.String = class extends Expression.NullaryExpression {
 		return super.get(name);
 	}
 	
-	setSerializationStrings(strings, promises) {
-		this.set("Value", strings[0]);
-	}
-	
 	getSerializationNames() {
 		return [ "Value" ];
 	}
 	
-	getSerializationStrings() {
+	async getSerializationStrings() {
 		return [ this.string ];
 	}
-
+	
+	setSerializationStrings(strings, promises) {
+		this.set("Value", strings[0]);
+	}
+	
 	prepareDisplay(context) {
 		let bkp = context.fontInfo.name;
 		context.fontInfo.setName(context, "Courier");
@@ -114,37 +114,6 @@ StringPackage.Text = class extends StringPackage.String {
 	getTag() { return "String.Text"; }
 	getName() { return "Text"; }
 	
-	/*
-	set(name, value) {
-		if (name == "Value") {
-			this.text = value;
-		}
-		else {
-			super.set(name, value);
-		}
-	}
-	
-	get(name) {
-		if (name == "Value") {
-			return this.text;
-		}
-		
-		super.get(name);
-	}
-	
-	setSerializationStrings(strings, promises) {
-		this.set("Value", strings[0]);
-	}
-	
-	getSerializationNames() {
-		return [ "Value" ];
-	}
-	
-	getSerializationStrings() {
-		return [ this.text ];
-	}
-	*/
-
 	prepareDisplay(context) {
 		this.width = Math.round(context.measureText(this.string).width);
 		this.height = context.fontInfo.size;
@@ -242,19 +211,19 @@ StringPackage.URL = class extends Expression.NullaryExpression {
 		super.get(name);
 	}
 	
+	getSerializationNames() {
+		return [ "Value", "Description" ];
+	}
+	
+	async getSerializationStrings() {
+		return [ this.url, this.description ];
+	}
+	
 	setSerializationStrings(strings, promises) {
 		this.set("Value",       strings[0]);
 		this.set("Description", strings[1]);
 	}
 	
-	getSerializationNames() {
-		return [ "Value", "Description" ];
-	}
-	
-	getSerializationStrings() {
-		return [ this.url, this.description ];
-	}
-
 	prepareDisplay(context) {
 		this.width = Math.round(context.measureText(this.description).width);
 		this.height = context.fontInfo.size;
