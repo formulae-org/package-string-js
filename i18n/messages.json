@@ -17,8 +17,8 @@
 	"leafLength"     : "Length",
 
 	"nameConcatenation"     : "String concatenation",
-	"operatorConcatenation" : "🔗",
-	"leafConcatenation"     : "🔗",
+	"operatorConcatenation" : "⋈",
+	"leafConcatenation"     : "⋈",
 
 	"nameSubstringToPos"     : "Substring from position to position",
 	"mnemonicSubstringToPos" : "SubstringPosToPos",
