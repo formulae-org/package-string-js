@@ -55,7 +55,7 @@ StringPackage.functionReducer = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Length":
-			result = CanonicalArithmetic.number2InternalNumber(value.length)
+			result = CanonicalArithmetic.createInternalNumber(CanonicalArithmetic.createInteger(value.length, session));
 			break;
 		
 		case "String.Uppercase":
@@ -104,7 +104,9 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Index":
-			result = CanonicalArithmetic.number2InternalNumber(value1.indexOf(value2) + 1);
+			result = CanonicalArithmetic.createInternalNumber(
+				CanonicalArithmetic.createInteger(value1.indexOf(value2) + 1, session)
+			);
 			break;
 		
 		case "String.Indexes":
@@ -113,7 +115,9 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 				let pos = value1.indexOf(value2);
 				while (pos != -1) {
 					result.addChild(
-						CanonicalArithmetic.number2InternalNumber(pos + 1)
+						CanonicalArithmetic.createInternalNumber(
+							CanonicalArithmetic.createInteger(pos + 1, session)
+						)
 					);
 					pos = value1.indexOf(value2, pos + 1);
 					
@@ -259,8 +263,8 @@ StringPackage.split = async (split, session) => {
 		let spec = split.children[1];
 		
 		switch (spec.getTag()) {
-			case "Math.Number": {
-					let n = CanonicalArithmetic.getInteger(spec);
+			case "Math.InternalNumber": {
+					let n = CanonicalArithmetic.getNativeInteger(spec);
 					if (n === undefined || n <= 0) {
 						ReductionManager.setInError(spec, "Expression must be a positive integer number");
 						throw new ReductionError();
@@ -325,7 +329,7 @@ StringPackage.splitList = (value, list) => {
 	let test;
 	
 	for (i = 0; i < n; ++i) {
-		test = CanonicalArithmetic.getInteger(list.children[i]);
+		test = CanonicalArithmetic.getNativeInteger(list.children[i]);
 		if (test === undefined || test == 0 || Math.abs(test) <= Math.abs(last) || Math.abs(test) > size ) {
 			ReductionManager.setInError(list.children[i], "Invalid value");
 			throw new ReductionError();
@@ -505,7 +509,7 @@ StringPackage.subString = async (subString, session) => {
 	}
 	let s = sExpression.get("Value");
 	
-	let n1 = CanonicalArithmetic.getInteger(subString.children[1]);
+	let n1 = CanonicalArithmetic.getNativeInteger(subString.children[1]);
 	if (n1 === undefined || n1 == 0) {
 		ReductionManager.setInError(subString.children[1], "Invalid index");
 		throw new ReductionError();
@@ -526,7 +530,7 @@ StringPackage.subString = async (subString, session) => {
 		subString.replaceBy(result);
 	}
 	else {
-		let n2 = CanonicalArithmetic.getInteger(subString.children[2]);
+		let n2 = CanonicalArithmetic.getNativeInteger(subString.children[2]);
 		if (n2 === undefined) {
 			ReductionManager.setInError(subString.children[2], "Expression must be numeric");
 			throw new ReductionError();
@@ -590,7 +594,7 @@ StringPackage.encode = async (encode, session) => {
 	
 	let n;
 	numeric: {
-		n = CanonicalArithmetic.getInteger(arg);
+		n = CanonicalArithmetic.getNativeInteger(arg);
 		
 		if (n === undefined) {
 			break numeric;
@@ -612,7 +616,7 @@ StringPackage.encode = async (encode, session) => {
 		throw new ReductionError();
 	}
 	
-	let array = arg.children.map(expr => CanonicalArithmetic.getInteger(expr));
+	let array = arg.children.map(expr => CanonicalArithmetic.getNativeInteger(expr));
 	let result = Formulae.createExpression("String.String");
 	result.set("Value", String.fromCodePoint( ...array));
 	encode.replaceBy(result);
@@ -659,7 +663,9 @@ StringPackage.decode = async (decode, session) => {
 	let str = arg.get("Value");
 	let array = [...str];
 	array.forEach(ch => result.addChild(
-		CanonicalArithmetic.number2InternalNumber(ch.codePointAt(0))
+		CanonicalArithmetic.createInternalNumber(
+			CanonicalArithmetic.createInteger(ch.codePointAt(0), session)
+		)
 	));
 	
 	decode.replaceBy(result);
