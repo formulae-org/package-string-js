@@ -55,7 +55,7 @@ StringPackage.functionReducer = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Length":
-			result = CanonicalArithmetic.createInternalNumber(CanonicalArithmetic.createInteger(value.length, session));
+			result = CanonicalArithmetic.createInternalNumber(CanonicalArithmetic.createInteger(value.length, session), session);
 			break;
 		
 		case "String.Uppercase":
@@ -105,7 +105,8 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 	switch (functionExpression.getTag()) {
 		case "String.Index":
 			result = CanonicalArithmetic.createInternalNumber(
-				CanonicalArithmetic.createInteger(value1.indexOf(value2) + 1, session)
+				CanonicalArithmetic.createInteger(value1.indexOf(value2) + 1, session),
+				session
 			);
 			break;
 		
@@ -116,7 +117,8 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 				while (pos != -1) {
 					result.addChild(
 						CanonicalArithmetic.createInternalNumber(
-							CanonicalArithmetic.createInteger(pos + 1, session)
+							CanonicalArithmetic.createInteger(pos + 1, session),
+							session
 						)
 					);
 					pos = value1.indexOf(value2, pos + 1);
@@ -664,7 +666,8 @@ StringPackage.decode = async (decode, session) => {
 	let array = [...str];
 	array.forEach(ch => result.addChild(
 		CanonicalArithmetic.createInternalNumber(
-			CanonicalArithmetic.createInteger(ch.codePointAt(0), session)
+			CanonicalArithmetic.createInteger(ch.codePointAt(0), session),
+			session
 		)
 	));
 	
