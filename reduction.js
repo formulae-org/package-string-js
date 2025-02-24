@@ -55,7 +55,7 @@ StringPackage.functionReducer = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Length":
-			result = CanonicalArithmetic.createInternalNumber(CanonicalArithmetic.createInteger(value.length, session), session);
+			result = Arithmetic.createInternalNumber(Arithmetic.createInteger(value.length, session), session);
 			break;
 		
 		case "String.Uppercase":
@@ -104,8 +104,8 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 	
 	switch (functionExpression.getTag()) {
 		case "String.Index":
-			result = CanonicalArithmetic.createInternalNumber(
-				CanonicalArithmetic.createInteger(value1.indexOf(value2) + 1, session),
+			result = Arithmetic.createInternalNumber(
+				Arithmetic.createInteger(value1.indexOf(value2) + 1, session),
 				session
 			);
 			break;
@@ -116,8 +116,8 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 				let pos = value1.indexOf(value2);
 				while (pos != -1) {
 					result.addChild(
-						CanonicalArithmetic.createInternalNumber(
-							CanonicalArithmetic.createInteger(pos + 1, session),
+						Arithmetic.createInternalNumber(
+							Arithmetic.createInteger(pos + 1, session),
 							session
 						)
 					);
@@ -266,7 +266,7 @@ StringPackage.split = async (split, session) => {
 		
 		switch (spec.getTag()) {
 			case "Math.InternalNumber": {
-					let n = CanonicalArithmetic.getNativeInteger(spec);
+					let n = Arithmetic.getNativeInteger(spec);
 					if (n === undefined || n <= 0) {
 						ReductionManager.setInError(spec, "Expression must be a positive integer number");
 						throw new ReductionError();
@@ -331,7 +331,7 @@ StringPackage.splitList = (value, list) => {
 	let test;
 	
 	for (i = 0; i < n; ++i) {
-		test = CanonicalArithmetic.getNativeInteger(list.children[i]);
+		test = Arithmetic.getNativeInteger(list.children[i]);
 		if (test === undefined || test == 0 || Math.abs(test) <= Math.abs(last) || Math.abs(test) > size ) {
 			ReductionManager.setInError(list.children[i], "Invalid value");
 			throw new ReductionError();
@@ -511,7 +511,7 @@ StringPackage.subString = async (subString, session) => {
 	}
 	let s = sExpression.get("Value");
 	
-	let n1 = CanonicalArithmetic.getNativeInteger(subString.children[1]);
+	let n1 = Arithmetic.getNativeInteger(subString.children[1]);
 	if (n1 === undefined || n1 == 0) {
 		ReductionManager.setInError(subString.children[1], "Invalid index");
 		throw new ReductionError();
@@ -532,7 +532,7 @@ StringPackage.subString = async (subString, session) => {
 		subString.replaceBy(result);
 	}
 	else {
-		let n2 = CanonicalArithmetic.getNativeInteger(subString.children[2]);
+		let n2 = Arithmetic.getNativeInteger(subString.children[2]);
 		if (n2 === undefined) {
 			ReductionManager.setInError(subString.children[2], "Expression must be numeric");
 			throw new ReductionError();
@@ -596,7 +596,7 @@ StringPackage.encode = async (encode, session) => {
 	
 	let n;
 	numeric: {
-		n = CanonicalArithmetic.getNativeInteger(arg);
+		n = Arithmetic.getNativeInteger(arg);
 		
 		if (n === undefined) {
 			break numeric;
@@ -618,7 +618,7 @@ StringPackage.encode = async (encode, session) => {
 		throw new ReductionError();
 	}
 	
-	let array = arg.children.map(expr => CanonicalArithmetic.getNativeInteger(expr));
+	let array = arg.children.map(expr => Arithmetic.getNativeInteger(expr));
 	let result = Formulae.createExpression("String.String");
 	result.set("Value", String.fromCodePoint( ...array));
 	encode.replaceBy(result);
@@ -633,7 +633,7 @@ StringPackage.encode = async (encode, session) => {
 	for (int i = 0; i < size; ++i) {
 		child = arg.getChild(i);
 		
-		n = CanonicalArithmetic.getInteger(child);
+		n = Arithmetic.getInteger(child);
 		if (n == null || n <= 0) {
 			Util.setInError(session.getFactory(), child, "Expression must be a non-negative integer number");
 			throw new ReductionException();
@@ -665,8 +665,8 @@ StringPackage.decode = async (decode, session) => {
 	let str = arg.get("Value");
 	let array = [...str];
 	array.forEach(ch => result.addChild(
-		CanonicalArithmetic.createInternalNumber(
-			CanonicalArithmetic.createInteger(ch.codePointAt(0), session),
+		Arithmetic.createInternalNumber(
+			Arithmetic.createInteger(ch.codePointAt(0), session),
 			session
 		)
 	));
