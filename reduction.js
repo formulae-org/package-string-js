@@ -675,6 +675,18 @@ StringPackage.decode = async (decode, session) => {
 	return true;
 };
 
+StringPackage.log = async(log, session) => {
+	let arg = log.children[0];
+	
+	if (arg.getTag() !== "String.String") {
+		ReductionManager.setInError(arg, "Expression must be a string");
+		throw new ReductionError();
+	}
+	
+	console.info(arg.get("Value"));
+	return true;
+};
+
 StringPackage.setReducers = () => {
 	ReductionManager.addReducer("String.Concatenation", StringPackage.concatenation, "StringPackage.concatenation");
 	
@@ -709,4 +721,6 @@ StringPackage.setReducers = () => {
 	
 	ReductionManager.addReducer("String.Encode", StringPackage.encode, "StringPackage.encode");
 	ReductionManager.addReducer("String.Decode", StringPackage.decode, "StringPackage.decode");
+	
+	ReductionManager.addReducer("String.Log", StringPackage.log, "StringPackage.log");
 };

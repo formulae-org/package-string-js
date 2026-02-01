@@ -312,6 +312,7 @@ StringPackage.setEditions = function() {
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToText, () => Expression.wrapperEdition("String.ToText"));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToRegularExpression, () => Expression.wrapperEdition("String.ToRegularExpression"));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToPassword, () => Expression.wrapperEdition("String.ToPassword"));
+	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLog, () => Expression.wrapperEdition("String.Log"));
 };
 
 StringPackage.setActions = function() {

@@ -119,5 +119,9 @@
 	
 	"nameToPassword"     : "Conversión a contraseña",
 	"mnemonicToPassword" : "Contraseña",
-	"leafToPassword"     : "Conversión a contraseña"
+	"leafToPassword"     : "Conversión a contraseña",
+	
+	"nameLog"     : "Log",
+	"mnemonicLog" : "Log",
+	"leafLog"     : "Log"
 }

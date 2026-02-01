@@ -270,7 +270,8 @@ StringPackage.setExpressions = function(module) {
 	// 1-parameter functions
 	[ "Length", "Uppercase", "Lowercase", "Trim",
 	  "Reverse", "Encode", "Decode",
-	  "ToText", "ToRegularExpression", "ToPassword"
+	  "ToText", "ToRegularExpression", "ToPassword",
+	  "Log"
 	].forEach(tag => Formulae.setExpression(module, "String." + tag, {
 		clazz:       Expression.Function,
 		getTag:      () => "String." + tag,

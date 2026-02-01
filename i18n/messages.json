@@ -119,5 +119,9 @@
 	
 	"nameToPassword"     : "To password",
 	"mnemonicToPassword" : "ToPassword",
-	"leafToPassword"     : "To password"
+	"leafToPassword"     : "To password",
+	
+	"nameLog"     : "Log",
+	"mnemonicLog" : "Log",
+	"leafLog"     : "Log"
 }
