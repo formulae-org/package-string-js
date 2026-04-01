@@ -189,65 +189,12 @@ StringPackage.Password = class extends StringPackage.String {
 	}
 }
 
-StringPackage.URL = class extends Expression.NullaryExpression {
-	getTag() { return "Internet.UniformResourceLocator"; }
-	getName() { return "Internet uniform resource locator" }
-	
-	set(name, value) {
-		switch (name) {
-			case "Value"      : this.url         = value; return;
-			case "Description": this.description = value; return;
-		}
-
-		super.set(name, value);
-	}
-	
-	get(name) {
-		switch (name) {
-			case "Value"      : return this.url;
-			case "Description": return this.description;
-		}
-		
-		super.get(name);
-	}
-	
-	getSerializationNames() {
-		return [ "Value", "Description" ];
-	}
-	
-	async getSerializationStrings() {
-		return [ this.url, this.description ];
-	}
-	
-	setSerializationStrings(strings, promises) {
-		this.set("Value",       strings[0]);
-		this.set("Description", strings[1]);
-	}
-	
-	prepareDisplay(context) {
-		this.width = Math.round(context.measureText(this.description).width);
-		this.height = context.fontInfo.size;
-		this.horzBaseline = Math.round(this.height / 2);
-		this.vertBaseline = Math.round(this.width / 2);
-	}
-
-	display(context, x, y) {
-		let bkpFillStyle = context.fillStyle;
-		//context.fillStyle = "blue";
-		context.fillStyle = "green";
-		super.drawText(context, this.description, x, y + context.fontInfo.size);
-		context.fillStyle = bkpFillStyle;
-	}
-}
-
 StringPackage.setExpressions = function(module) {
 	Formulae.setExpression(module, "String.String",            StringPackage.String);
 	Formulae.setExpression(module, "String.Text",              StringPackage.Text);
 	Formulae.setExpression(module, "String.RegularExpression", StringPackage.RegularExpression);
 	Formulae.setExpression(module, "String.Password",          StringPackage.Password);
-	
-	Formulae.setExpression(module, "Internet.UniformResourceLocator", StringPackage.URL);
-	
+
 	// concatenation, infix, two or more operands
 	Formulae.setExpression(module, "String.Concatenation", {
 		clazz:       Expression.Infix,

@@ -9,7 +9,7 @@
 	"leafString"           : "Cadena",
 
 	"namePassword"  : "Contraseña",
-	"enterPassword" : "Introuzca contraeña",
+	"enterPassword" : "Introduzca contraseña",
 	"leafPassword"  : "Contraseña",
 
 	"nameLength"     : "Longitud de cadena",
@@ -28,14 +28,14 @@
 	"nameSubstringToN"     : "Subcadena de posición a número de caracteres",
 	"mnemonicSubstringToN" : "SubcadenaPosN",
 	"leafSubstringToN"     : "Subcadena de posición a número de caracteres",
-	"childrenSubstringToN" : [ "Cadena a extraer subcadena", "Posición inicial", "Número of caracteres" ],
+	"childrenSubstringToN" : [ "Cadena a extraer subcadena", "Posición inicial", "Número de caracteres" ],
 
 	"nameSubstring"     : "Subcadena de posición al final",
 	"mnemonicSubstring" : "SubcadenaPosFin",
 	"leafSubstring"     : "Subcadena de posición al final",
 	"childrenSubstring" : [ "Cadena a extraer subcadena", "Posición inicial" ],
 
-	"childrenSearch" : [ "Cadena en one buscar", "Subcadena a buscar" ],
+	"childrenSearch" : [ "Cadena en donde buscar", "Subcadena a buscar" ],
 
 	"nameIndex"     : "Posición de primera ocurrencia",
 	"mnemonicIndex" : "Posición",
@@ -81,7 +81,7 @@
 	"nameMatches"     : "¿Concuerda?",
 	"operatorMatches" : "¿Concuerda?",
 	"leafMatches"     : "¿Concuerda?",
-	"childrenMatches" : [ "Cadena en one buscar concordancias", "Cadena a ser utilizaa como patrón" ],
+	"childrenMatches" : [ "Cadena en donde buscar concordancias", "Cadena a ser utilizada como patrón" ],
 
 	"nameSplit"     : "División",
 	"mnemonicSplit" : "División",

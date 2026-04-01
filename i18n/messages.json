@@ -25,9 +25,9 @@
 	"leafSubstringToPos"     : "Substring from position to position",
 	"childrenSubstringToPos" : [ "String to extract substring", "Initial position", "Final position" ],
 
-	"nameSubstringToN"     : "Substring from position, a number characters",
+	"nameSubstringToN"     : "Substring from position, a number of characters",
 	"mnemonicSubstringToN" : "SubstringPosN",
-	"leafSubstringToN"     : "Substring from position, a number characters",
+	"leafSubstringToN"     : "Substring from position, a number of characters",
 	"childrenSubstringToN" : [ "String to extract substring", "Initial position", "Number of characters" ],
 
 	"nameSubstring"     : "Substring from position, to the end",
@@ -37,25 +37,25 @@
 
 	"childrenSearch" : [ "String to search in", "Substring to be searched" ],
 
-	"nameIndex"     : "Index of first ocurrence of string",
+	"nameIndex"     : "Index of first occurrence of string",
 	"mnemonicIndex" : "Index",
-	"leafIndex"     : "Index of first ocurrence of string",
+	"leafIndex"     : "Index of first occurrence of string",
 
-	"nameIndexes"     : "Indexes of all the ocurrences of string",
+	"nameIndexes"     : "Indexes of all the occurrences of string",
 	"mnemonicIndexes" : "Indexes",
-	"leafIndexes"     : "Indexes of all ocurrences of string",
+	"leafIndexes"     : "Indexes of all occurrences of string",
 
 	"nameContains"     : "Contains a substring",
 	"operatorContains" : "Contains",
 	"leafContains"     : "Contains",
 
-	"nameStartsWith"     : "Starts with a subtring",
+	"nameStartsWith"     : "Starts with a substring",
 	"operatorStartsWith" : "StartsWith",
-	"leafStartsWith"     : "Starts with a subtring",
+	"leafStartsWith"     : "Starts with a substring",
 
-	"nameEndsWith"     : "Ends with a subtring",
+	"nameEndsWith"     : "Ends with a substring",
 	"operatorEndsWith" : "EndsWith",
-	"leafEndsWith"     : "Ends with a subtring",
+	"leafEndsWith"     : "Ends with a substring",
 
 	"nameUppercase"     : "Uppercase",
 	"mnemonicUppercase" : "Uppercase",
@@ -65,14 +65,14 @@
 	"mnemonicLowercase" : "Lowercase",
 	"leafLowercase"     : "Lowercase",
 
-	"nameReplace"     : "Replace first ocurrence",
+	"nameReplace"     : "Replace first occurrence",
 	"mnemonicReplace" : "Replace",
-	"leafReplace"     : "Replace first ocurrence",
+	"leafReplace"     : "Replace first occurrence",
 	"childrenReplace" : [ "String to search on", "Substring to be searched", "New substring" ],
 
-	"nameReplaceAll"     : "Replace all ocurrences",
+	"nameReplaceAll"     : "Replace all occurrences",
 	"mnemonicReplaceAll" : "ReplaceAll",
-	"leafReplaceAll"     : "Replace all ocurrences",
+	"leafReplaceAll"     : "Replace all occurrences",
 
 	"nameTrim"     : "Trim",
 	"mnemonicTrim" : "Trim",
@@ -107,7 +107,7 @@
 	"nameToString"     : "To string",
 	"mnemonicToString" : "ToString",
 	"leafToString"     : "To string",
-	"childrenToString" : [ "Expression to be converted to strign", "Modifier" ],
+	"childrenToString" : [ "Expression to be converted to string", "Modifier" ],
 
 	"nameToText"     : "To text",
 	"mnemonicToText" : "ToText",

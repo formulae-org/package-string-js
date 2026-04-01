@@ -177,116 +177,12 @@ StringPackage.editionPassword = function() {
 	Formulae.setSelected(Formulae.sHandler, newExpression, false);
 }
 
-///////////////////////////////////////////////
-
-StringPackage.actionEditURL = {
-	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Edit link...",
-	doAction: () => {
-		StringPackage.createURLForm(Formulae.sExpression.get("Value"), Formulae.sExpression.get("Description"), (v, d) => {
-			Formulae.sExpression.set("Value", v);
-			Formulae.sExpression.set("Description", d);
-			
-			Formulae.sHandler.prepareDisplay();
-			Formulae.sHandler.display();
-			Formulae.setSelected(Formulae.sHandler, Formulae.sExpression, false);
-		});
-	}
-};
-
-StringPackage.createURLForm = function(value, description, f) {
-	if (StringPackage.urlForm === undefined) {
-		let table, tr, td, v, d, ok;
-
-		table = document.createElement("table");
-		table.classList.add("bordered");
-		table.innerHTML =
-`
-<tr>
-<th colspan=2>Link
-<tr>
-<td>URL
-<td><input type="text" size=50>
-<tr>
-<td>Description
-<td><input type="text" size=50>
-<tr>
-<th colspan=2><button>Ok</button>
-`;
-
-		StringPackage.urlForm = table;
-	}
-
-	let rows = StringPackage.urlForm.rows;
-	let v  = rows[1].cells[1].firstChild;
-	let d  = rows[2].cells[1].firstChild;
-	let ok = rows[3].cells[0].firstChild;
-
-	v.value = value;
-	d.value = description;
-
-	ok.onclick = () => {
-		Formulae.modal.style.display = "none";
-		f(v.value, d.value);
-	};
-
-	Formulae.modalContent.removeChild(Formulae.modalContent.childNodes[0]);
-	Formulae.modalContent.appendChild(StringPackage.urlForm);
-
-	Formulae.modal.style.display = "block";
-	Formulae.modal.focus();
-};
-
-StringPackage.editionURL = function() {
-	StringPackage.createURLForm(null, null, (v, d) => {
-		let newExpression = Formulae.createExpression("Internet.UniformResourceLocator");
-		newExpression.set("Value", v);
-		newExpression.set("Description", d);
-		
-		Formulae.sExpression.replaceBy(newExpression);
-		Formulae.sHandler.prepareDisplay();
-		Formulae.sHandler.display();
-		Formulae.setSelected(Formulae.sHandler, newExpression, false);
-	});
-}
-
-StringPackage.actionJumpURL = {
-	isAvailableNow: () => true,
-	getDescription: () => "Open link in new tab",
-	doAction: () => {
-		let win = window.open(Formulae.sExpression.get("Value"), "_blank");
-		win.focus();
-	}
-};
-
-StringPackage.actionCopyURL = {
-	isAvailableNow: () => true,
-	getDescription: () => "Copy link address",
-	doAction: () => navigator.clipboard.writeText(Formulae.sExpression.get("Value"))
-};
-
-StringPackage.actionEditURL = {
-	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Edit link...",
-	doAction: () => {
-		StringPackage.createURLForm(Formulae.sExpression.get("Value"), Formulae.sExpression.get("Description"), (v, d) => {
-			Formulae.sExpression.set("Value", v);
-			Formulae.sExpression.set("Description", d);
-			
-			Formulae.sHandler.prepareDisplay();
-			Formulae.sHandler.display();
-			Formulae.setSelected(Formulae.sHandler, Formulae.sExpression, false);
-		});
-	}
-};
-
 StringPackage.setEditions = function() {
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafString, Formulae.editionString = StringPackage.editionString);
 	Formulae.addEdition(this.messages.pathString, null, "Text",                   Formulae.editionText = StringPackage.editionText);
 	Formulae.addEdition(this.messages.pathString, null, "Regular expression",     StringPackage.editionRegularExpression);
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafPassword, StringPackage.editionPassword);
-	Formulae.addEdition("Internet", null, "URL", StringPackage.editionURL);
-	
+
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLength, () => Expression.wrapperEdition("String.Length"));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafConcatenation, () => Expression.binaryEdition("String.Concatenation", false));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSubstringToPos, () => Expression.multipleEdition("String.SubstringToPos", 3, 0));
@@ -321,8 +217,5 @@ StringPackage.setActions = function() {
 	Formulae.addAction("String.Text",                     StringPackage.actionText);
 	Formulae.addAction("String.Text",                     StringPackage.actionText2String);
 	Formulae.addAction("String.RegularExpression",        StringPackage.actionRegularExpression);
-	Formulae.addAction("Internet.UniformResourceLocator", StringPackage.actionJumpURL);
-	Formulae.addAction("Internet.UniformResourceLocator", StringPackage.actionCopyURL);
-	Formulae.addAction("Internet.UniformResourceLocator", StringPackage.actionEditURL);
 };
 
