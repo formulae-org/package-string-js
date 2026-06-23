@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+"use strict";
 
 export class StringPackage extends Formulae.Package {}
 
@@ -41,7 +41,7 @@ StringPackage.concatenation = async (concatenation, session) => {
 	//session.log("String concatenation");
 	return true;
 };
-	
+
 StringPackage.functionReducer = async (functionExpression, session) => {
 	let argument = functionExpression.children[0];
 	
@@ -138,7 +138,7 @@ StringPackage.functionStringString = async (functionExpression, session) => {
 				value1.endsWith(value2) ? "Logic.True" : "Logic.False"
 			);
 			break;
-		
+	
 	}
 	
 	functionExpression.replaceBy(result);
@@ -235,7 +235,7 @@ StringPackage.replacement = async (replacement, session) => {
 		ReductionManager.setInError(argument2, "Expression must be a string");
 		throw new ReductionError();
 	}
-
+	
 	let result = Formulae.createExpression("String.String");
 	result.set(
 		"Value",
@@ -296,7 +296,7 @@ StringPackage.split = async (split, session) => {
 	//session.log("String split");
 	return true;
 }
-		
+
 StringPackage.splitEvery = (s, size) => {
 	let result = Formulae.createExpression("List.List");
 	let strExpr;
@@ -402,7 +402,7 @@ StringPackage.format = async (format, session) => {
 	}
 };
 */
-	
+
 StringPackage.arrayToString = async (toString, session) => {
 	let argument = toString.children[0];
 	if (argument.getTag() !== "List.List") {
@@ -468,7 +468,7 @@ StringPackage.to = async (to, session) => {
 			result = Formulae.createExpression("String.Password");
 			break;
 	}
-
+	
 	result.set("Value", value);	
 	to.replaceBy(result);
 	return true;
@@ -526,7 +526,7 @@ StringPackage.subString = async (subString, session) => {
 			ReductionManager.setInError(subString.children[1], "Invalid index");
 			throw new ReductionError();
 		}
-
+		
 		let result = Formulae.createExpression("String.String");
 		result.set("Value", s.substring(n1 - 1));
 		subString.replaceBy(result);
@@ -557,7 +557,7 @@ StringPackage.subString = async (subString, session) => {
 				ReductionManager.setInError(subString.children[1], "Invalid value");
 				throw new ReductionError();
 			}
-
+			
 			let result = Formulae.createExpression("String.String");
 			result.set("Value", s.substring(n1 - 1, n2 - 1));
 			subString.replaceBy(result);
@@ -580,7 +580,7 @@ StringPackage.subString = async (subString, session) => {
 				ReductionManager.setInError(subString.children[1], "Invalid index");
 				throw new ReductionError();
 			}
-
+			
 			let result = Formulae.createExpression("String.String");
 			result.set("Value", s.substring(n1 - 1, n1 + n2 - 1));
 			subString.replaceBy(result);

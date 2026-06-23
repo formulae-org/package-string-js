@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+"use strict";
 
 export class StringPackage extends Formulae.Package {}
 
@@ -64,37 +64,37 @@ StringPackage.String = class extends Expression.NullaryExpression {
 			case 1: { let s = this.string; if (s.length == 0) s = "ε"; this.width = Math.round(context.measureText(s).width); }	break;
 			case 2: this.width = this.string.length == 0 ? 2 : Math.round(context.measureText(this.string).width); break;
 		}
-
+		
 		context.fontInfo.setName(context, bkp);
-
+		
 		this.height = context.fontInfo.size;
 		this.horzBaseline = Math.round(this.height / 2);
 		this.vertBaseline = Math.round(this.width / 2);
 	}
-
+	
 	display(context, x, y) {
 		let bkp = context.fontInfo.name;
 		context.fontInfo.setName(context, "Courier");
-
+		
 		switch (StringPackage.stringType) {
 			case 0:  // localized quotes
 				super.drawText(context, StringPackage.messages.openingQuotationMark + this.string + StringPackage.messages.closingQuotationMark, x, y + context.fontInfo.size);
 				break;
-
+			
 			case 1:  // simple
 				if (this.string.length == 0) {
 					let bkpFillStyle = context.fillStyle;
 					context.fillStyle = "red";
-
+					
 					super.drawText(context, "ε", x, y + context.fontInfo.size),
-
+					
 					context.fillStyle = bkpFillStyle;
 				}
 				else {
 					super.drawText(context, this.string, x, y + context.fontInfo.size);
 				}
 				break;
-
+			
 			case 2: { // boxed
 					super.drawText(context, this.string, x, y + context.fontInfo.size);
 					let bkpStrokeStyle = context.strokeStyle;
@@ -104,7 +104,7 @@ StringPackage.String = class extends Expression.NullaryExpression {
 				}
 				break;
 		}
-
+		
 		context.fontInfo.setName(context, bkp);
 	}
 }
@@ -120,7 +120,7 @@ StringPackage.Text = class extends StringPackage.String {
 		this.horzBaseline = Math.round(this.height / 2);
 		this.vertBaseline = Math.round(this.width / 2);
 	}
-
+	
 	display(context, x, y) {
 		super.drawText(context, this.string, x, y + context.fontInfo.size);
 	}
@@ -145,18 +145,18 @@ StringPackage.RegularExpression = class extends StringPackage.String {
 		context.fontInfo.setName(context, "Courier");
 		
 		this.width = context.fontInfo.size + (this.string.length == 0 ? 2 : Math.round(context.measureText(this.string).width));
-
+		
 		context.fontInfo.setName(context, bkp);
-
+		
 		this.height = context.fontInfo.size;
 		this.horzBaseline = Math.round(this.height / 2);
 		this.vertBaseline = Math.round((this.width + context.fontInfo.size) / 2);
 	}
-
+	
 	display(context, x, y) {
 		let bkp = context.fontInfo.name;
 		context.fontInfo.setName(context, "Courier");
-
+		
 		super.drawText(context, this.string, x + Math.round(context.fontInfo.size / 2), y + context.fontInfo.size);
 		let bkpStrokeStyle = context.strokeStyle;
 		context.strokeStyle = "gray";
@@ -170,7 +170,7 @@ StringPackage.RegularExpression = class extends StringPackage.String {
 		context.stroke();
 		
 		context.strokeStyle = bkpStrokeStyle;
-
+		
 		context.fontInfo.setName(context, bkp);
 	}
 }
@@ -179,7 +179,7 @@ StringPackage.Password = class extends StringPackage.String {
 	getTag() { return "String.Password"; }
 	getName() { return StringPackage.messages.namePassword; }
 	getLiteral() { return "*****"; }
-
+	
 	prepareDisplay(context) {
 		this.prepareDisplayAsLiteral(context);
 	}
@@ -194,7 +194,7 @@ StringPackage.setExpressions = function(module) {
 	Formulae.setExpression(module, "String.Text",              StringPackage.Text);
 	Formulae.setExpression(module, "String.RegularExpression", StringPackage.RegularExpression);
 	Formulae.setExpression(module, "String.Password",          StringPackage.Password);
-
+	
 	// concatenation, infix, two or more operands
 	Formulae.setExpression(module, "String.Concatenation", {
 		clazz:       Expression.Infix,

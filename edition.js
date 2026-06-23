@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+"use strict";
 
 export class StringPackage extends Formulae.Package {}
 
@@ -42,7 +42,7 @@ StringPackage.actionString = {
 		s = prompt(StringPackage.messages.updateString, s);
 		
 		if (s == null) return;
-
+		
 		Formulae.sExpression.set("Value", s);
 		
 		Formulae.sHandler.prepareDisplay();
@@ -73,7 +73,7 @@ StringPackage.actionText = {
 		s = prompt("Update text", s);
 		
 		if (s == null) return;
-
+		
 		Formulae.sExpression.set("Value", s);
 		
 		Formulae.sHandler.prepareDisplay();
@@ -115,7 +115,7 @@ StringPackage.editionRegularExpression = function() {
 		s = prompt("Enter regular expression", s);
 		
 		if (s == null) return;
-	
+		
 		try {
 			let x = new RegExp(s);
 			break;
@@ -124,7 +124,6 @@ StringPackage.editionRegularExpression = function() {
 			continue;
 		}
 	}
-
 	
 	let newExpression = Formulae.createExpression("String.RegularExpression");
 	newExpression.set("Value", s);
@@ -154,7 +153,7 @@ StringPackage.actionRegularExpression = {
 				continue;
 			}
 		}
-
+		
 		Formulae.sExpression.set("Value", s);
 		
 		Formulae.sHandler.prepareDisplay();
@@ -167,7 +166,7 @@ StringPackage.editionPassword = function() {
 	let s = prompt(StringPackage.messages.enterPassword);
 	
 	if (s == null) return;
-
+	
 	let newExpression = Formulae.createExpression("String.Password");
 	newExpression.set("Value", s);
 	
@@ -182,7 +181,7 @@ StringPackage.setEditions = function() {
 	Formulae.addEdition(this.messages.pathString, null, "Text",                   Formulae.editionText = StringPackage.editionText);
 	Formulae.addEdition(this.messages.pathString, null, "Regular expression",     StringPackage.editionRegularExpression);
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafPassword, StringPackage.editionPassword);
-
+	
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLength, () => Expression.wrapperEdition("String.Length"));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafConcatenation, () => Expression.binaryEdition("String.Concatenation", false));
 	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSubstringToPos, () => Expression.multipleEdition("String.SubstringToPos", 3, 0));
