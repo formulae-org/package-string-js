@@ -8,6 +8,9 @@
 	"updateString"         : "Actualice cadena",
 	"leafString"           : "Cadena",
 
+	"leafText"              : "Texto",
+	"leafRegularExpression" : "Expresión regular",
+
 	"namePassword"  : "Contraseña",
 	"enterPassword" : "Introduzca contraseña",
 	"leafPassword"  : "Contraseña",
@@ -123,5 +126,11 @@
 	
 	"nameLog"     : "Log",
 	"mnemonicLog" : "Log",
-	"leafLog"     : "Log"
+	"leafLog"     : "Log",
+
+	"actionEditString" : "Editar cadena...",
+	"actionEditText" : "Editar texto...",
+	"actionConvertToText" : "Convertir a texto",
+	"actionConvertToString" : "Convertir a cadena",
+	"actionEditRegularExpression" : "Editar expresión regular..."
 }

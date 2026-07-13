@@ -8,6 +8,9 @@
 	"updateString"         : "Update string",
 	"leafString"           : "String",
 
+	"leafText"              : "Text",
+	"leafRegularExpression" : "Regular expression",
+
 	"namePassword"  : "Password",
 	"enterPassword" : "Enter password",
 	"leafPassword"  : "Password",
@@ -123,5 +126,11 @@
 	
 	"nameLog"     : "Log",
 	"mnemonicLog" : "Log",
-	"leafLog"     : "Log"
+	"leafLog"     : "Log",
+
+	"actionEditString" : "Edit string...",
+	"actionEditText" : "Edit text...",
+	"actionConvertToText" : "Convert to text",
+	"actionConvertToString" : "Convert to string",
+	"actionEditRegularExpression" : "Edit regular expression..."
 }

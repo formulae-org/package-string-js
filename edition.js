@@ -36,7 +36,7 @@ StringPackage.editionString = function() {
 
 StringPackage.actionString = {
 	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Edit string...",
+	getDescription: () => StringPackage.messages.actionEditString,
 	doAction: () => {
 		let s = Formulae.sExpression.get("Value");
 		s = prompt(StringPackage.messages.updateString, s);
@@ -67,7 +67,7 @@ StringPackage.editionText = function() {
 
 StringPackage.actionText = {
 	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Edit text...",
+	getDescription: () => StringPackage.messages.actionEditText,
 	doAction: () => {
 		let s = Formulae.sExpression.get("Value");
 		s = prompt("Update text", s);
@@ -84,7 +84,7 @@ StringPackage.actionText = {
 
 StringPackage.actionString2Text = {
 	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Convert to text",
+	getDescription: () => StringPackage.messages.actionConvertToText,
 	doAction: () => {
 		let newExpression = Formulae.createExpression("String.Text");
 		newExpression.set("Value", Formulae.sExpression.get("Value"));
@@ -97,7 +97,7 @@ StringPackage.actionString2Text = {
 
 StringPackage.actionText2String = {
 	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Convert to string",
+	getDescription: () => StringPackage.messages.actionConvertToString,
 	doAction: () => {
 		let newExpression = Formulae.createExpression("String.String");
 		newExpression.set("Value", Formulae.sExpression.get("Value"));
@@ -136,7 +136,7 @@ StringPackage.editionRegularExpression = function() {
 
 StringPackage.actionRegularExpression = {
 	isAvailableNow: () => Formulae.sHandler.type != Formulae.ROW_OUTPUT,
-	getDescription: () => "Edit regular expression...",
+	getDescription: () => StringPackage.messages.actionEditRegularExpression,
 	doAction: () => {
 		let s = Formulae.sExpression.get("Value");
 		
@@ -177,37 +177,34 @@ StringPackage.editionPassword = function() {
 }
 
 StringPackage.setEditions = function() {
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafString, Formulae.editionString = StringPackage.editionString);
-	Formulae.addEdition(this.messages.pathString, null, "Text",                   Formulae.editionText = StringPackage.editionText);
-	Formulae.addEdition(this.messages.pathString, null, "Regular expression",     StringPackage.editionRegularExpression);
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafPassword, StringPackage.editionPassword);
-	
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLength, () => Expression.wrapperEdition("String.Length"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafConcatenation, () => Expression.binaryEdition("String.Concatenation", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSubstringToPos, () => Expression.multipleEdition("String.SubstringToPos", 3, 0));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSubstringToN, () => Expression.multipleEdition("String.SubstringToN", 3, 0));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSubstring, () => Expression.binaryEdition("String.Substring", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafIndex, () => Expression.binaryEdition("String.Index", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafIndexes, () => Expression.binaryEdition("String.Indexes", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafContains, () => Expression.binaryEdition("String.Contains", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafStartsWith, () => Expression.binaryEdition("String.StartsWith", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafEndsWith, () => Expression.binaryEdition("String.EndsWith", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafUppercase, () => Expression.wrapperEdition("String.Uppercase"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLowercase, () => Expression.wrapperEdition("String.Lowercase"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafReplace, () => Expression.multipleEdition("String.Replace", 3, 0));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafReplaceAll, () => Expression.multipleEdition("String.ReplaceAll", 3, 0));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafTrim, () => Expression.wrapperEdition("String.Trim"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafMatches, () => Expression.binaryEdition("String.Matches", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafSplit, () => Expression.binaryEdition("String.Split", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafFormat, () => Expression.binaryEdition("String.Format", false));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafReverse, () => Expression.wrapperEdition("String.Reverse"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafEncode, () => Expression.wrapperEdition("String.Encode"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafDecode, () => Expression.wrapperEdition("String.Decode"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToString, () => Expression.wrapperEdition("String.ToString"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToText, () => Expression.wrapperEdition("String.ToText"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToRegularExpression, () => Expression.wrapperEdition("String.ToRegularExpression"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafToPassword, () => Expression.wrapperEdition("String.ToPassword"));
-	Formulae.addEdition(this.messages.pathString, null, this.messages.leafLog, () => Expression.wrapperEdition("String.Log"));
+
+	// Creation editions — the content is prompted, so (like the arithmetic Number entry) they are labeled with plain text…
+	Formulae.addEdition(this.messages.pathString, this.messages.leafString,            this.messages.leafString,            Formulae.editionString = StringPackage.editionString);
+	Formulae.addEdition(this.messages.pathString, this.messages.leafText,              this.messages.leafText,              Formulae.editionText = StringPackage.editionText);
+	Formulae.addEdition(this.messages.pathString, this.messages.leafRegularExpression, this.messages.leafRegularExpression, StringPackage.editionRegularExpression);
+	// …except a password, which always renders as a fixed ***** regardless of content, so it can show that glyph
+	Formulae.addEdition(this.messages.pathString, '<expression tag="String.Password" Value=""/>', this.messages.leafPassword, StringPackage.editionPassword);
+
+	Formulae.addWrapperEditions(this.messages, "String", "String", [ "Length" ]);
+	Formulae.addBinaryEdition(this.messages, "String", "Concatenation", "String.Concatenation");   // ▮ ⋈ ▯
+	[ "SubstringToPos", "SubstringToN" ].forEach(tag => Formulae.addEdition(
+		this.messages.pathString, Formulae.icon("String." + tag, 3), this.messages[ "leaf" + tag ],
+		() => Expression.multipleEdition("String." + tag, 3, 0)
+	));
+	[ "Substring", "Index", "Indexes", "Contains", "StartsWith", "EndsWith" ].forEach(
+		leaf => Formulae.addBinaryEdition(this.messages, "String", leaf, "String." + leaf)
+	);
+	Formulae.addWrapperEditions(this.messages, "String", "String", [ "Uppercase", "Lowercase" ]);
+	[ "Replace", "ReplaceAll" ].forEach(tag => Formulae.addEdition(
+		this.messages.pathString, Formulae.icon("String." + tag, 3), this.messages[ "leaf" + tag ],
+		() => Expression.multipleEdition("String." + tag, 3, 0)
+	));
+	Formulae.addWrapperEditions(this.messages, "String", "String", [ "Trim" ]);
+	[ "Matches", "Split", "Format" ].forEach(
+		leaf => Formulae.addBinaryEdition(this.messages, "String", leaf, "String." + leaf)
+	);
+	Formulae.addWrapperEditions(this.messages, "String", "String",
+		[ "Reverse", "Encode", "Decode", "ToString", "ToText", "ToRegularExpression", "ToPassword", "Log" ]);
 };
 
 StringPackage.setActions = function() {
