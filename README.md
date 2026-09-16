@@ -1,6 +1,6 @@
 # string-complex-js
 
-String package for [Fōrmulæ](https://formulae.org) — the visual environment for **computing**, **composing**, and **conversing** with tree-structured expressions.
+String package for [Fōrmulæ](https://formulae.org) — the visual environment for **composing**, **conversing**, and **computing** with tree-structured expressions.
 
 This repository contains the source code for the **string package**. It contains functionallity to manage strings, text and regular expressions.
 
